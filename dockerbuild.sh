@@ -24,6 +24,8 @@ case "$1" in
     -v "${HOME}"/.gitconfig:/root/.gitconfig \
     -v "${HOME}"/.ssh:/root/.ssh \
     -v "${HOME}"/.gnupg:/root/.gnupg \
+    -v $(dirname $SSH_AUTH_SOCK):$(dirname $SSH_AUTH_SOCK) \
+    -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
     -v "${PWD}:/usr/src/app" \
     -w /usr/src/app maven:3.5.4-jdk-8 \
     /bin/bash -c "mvn release:clean release:prepare && mvn release:perform" 
@@ -38,6 +40,8 @@ case "$1" in
     -v "${HOME}"/.gitconfig:/root/.gitconfig \
     -v "${HOME}"/.ssh:/root/.ssh \
     -v "${HOME}"/.gnupg:/root/.gnupg \
+    -v $(dirname $SSH_AUTH_SOCK):$(dirname $SSH_AUTH_SOCK) \
+    -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
     -v "${PWD}:/usr/src/app" \
     -w /usr/src/app maven:3.5.4-jdk-8 \
     /bin/bash -c "mvn release:rollback" 
