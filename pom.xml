@@ -12,6 +12,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <scm>
+    <url>https://github.com/tl-its-umich-edu/lti-utils</url>
+    <connection>scm:git:git://github.com/tl-its-umich-edu/lti-utils.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/tl-its-umich-edu/lti-utils.git</developerConnection>
+  </scm>
+
   <distributionManagement>
       <snapshotRepository>
           <id>ossrh</id>

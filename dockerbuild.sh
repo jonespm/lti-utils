@@ -24,7 +24,7 @@ case "$1" in
     -v "${HOME}"/.gnupg:/root/.gnupg \
     -v "${PWD}:/usr/src/app" \
     -w /usr/src/app maven:3.5.4-jdk-8 \
-    /bin/bash -c "mvn -T 1C -B release:clean release:prepare && mvn -T 1C -B release:perform" 
+    /bin/bash -c "mvn release:clean release:prepare && mvn release:perform" 
 ;;
 *)
 echo "Usage: $0 [install|release]"
