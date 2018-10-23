@@ -1,5 +1,3 @@
-This is README.txt for project lti-utils
-
 [Purpose]
 =========
 
@@ -25,7 +23,7 @@ server is managing SSL.
 Step 1: Add the LTI-Utils dependency to the application that you would like to 
 convert to an LTI Tool by modifying the application's pom.xml file using the 
 the latest version:
-
+```
    <dependency>
       <groupId>lti</groupId>
       <artifactId>lti-utils</artifactId>
@@ -33,13 +31,13 @@ the latest version:
       <type>jar</type>
       <scope>compile</scope>
    </dependency>
-
+```
 Step 2: Create a new servlet that will utilize lti-utils in the LTI Tool 
 application. This servlet should have a doPost method similar to the following:
-
-   	private String key =    "12345";
-	private String secret = "secret";
-	private String url =    "http://localhost:8082/sectionsUtilityTool/ltiservlet/";  //url leading to the LTI servlet for application
+```
+   private String key =    "12345";
+   private String secret = "secret";
+   private String url =    "http://localhost:8082/sectionsUtilityTool/ltiservlet/";  //url leading to the LTI servlet for application
 
    protected void doPost(HttpServletRequest request,HttpServletResponse response){
       M_log.debug("doPOST: Called");
@@ -50,7 +48,7 @@ application. This servlet should have a doPost method similar to the following:
          M_log.error("POST request has some exceptions",e);
       }		
    }
-
+```
 Step 3: Build the application (usually done with the mvn install command) and 
 deploy it on Tomcat.
 
@@ -87,10 +85,11 @@ the following in your catalina.out log when you press "Launch" (jsfiddle) or
 ===========================
 
 You can build this without installing maven with just docker installed.
-
+```
 docker run --rm -it --name lti-utils-build \
     -e "MAVEN_OPTS= -XX:+TieredCompilation -XX:TieredStopAtLevel=1" \
     -v "${HOME}"/.m2:/root/.m2 \
     -v "${PWD}:/usr/src/app" \
     -w /usr/src/app maven:3.5.4-jdk-8-slim \
     /bin/bash -c "mvn -T 1C -B install"
+```
