@@ -81,9 +81,17 @@ the following in your catalina.out log when you press "Launch" (jsfiddle) or
 
    MyRequest: true
 
-[Docker based compilation]
+[Docker based compilation and release]
 ===========================
 
 You can build this without installing maven with just docker installed.
 
-Run the command ./dockerbuild.sh install
+Run the command `./dockerbuild.sh install`
+
+To perform a release you must first setup an ssh agent if you use SSH to connect to github. Run the command `./dockerbuild.sh agent` which will setup a special agent container. 
+
+Then run the command `./dockerbuild.sh release-prepare` 
+And it it works run
+Then run the command `./dockerbuild.sh release-perform` 
+
+Note for the release to work you must have went through the initial setup steps documented separately. You may have to revert commits for this to entirely work.
