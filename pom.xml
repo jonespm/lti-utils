@@ -6,6 +6,23 @@
   <version>1.8-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>LTI Utilities Project</name>
+  <description>LTI Utilities Project</description>
+  <url>https://github.com/tl-its-umich-edu</url>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>tl-its-umich-edu</id>
+      <organization>University of Michigan Teaching and Learning Developers</organization>
+      <organizationUrl>https://github.com/tl-its-umich-edu</organizationUrl>
+    </developer>
+  </developers>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
