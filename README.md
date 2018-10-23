@@ -83,3 +83,14 @@ the following in your catalina.out log when you press "Launch" (jsfiddle) or
 
    MyRequest: true
 
+[Docker based compilation]
+===========================
+
+You can build this without installing maven with just docker installed.
+
+docker run --rm -it --name lti-utils-build \
+    -e "MAVEN_OPTS= -XX:+TieredCompilation -XX:TieredStopAtLevel=1" \
+    -v "${HOME}"/.m2:/root/.m2 \
+    -v "${PWD}:/usr/src/app" \
+    -w /usr/src/app maven:3.5.4-jdk-8-slim \
+    /bin/bash -c "mvn -T 1C -B install"
