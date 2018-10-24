@@ -20,7 +20,7 @@ case "$1" in
     # This seems to be necessary to setup SSH for github release
     # https://github.com/nardeas/docker-ssh-agent
     echo "Setting up agent"
-    AGENT="ssh_agent"
+    AGENT="ssh-agent"
     OLD="$(docker ps --all --quiet --filter=name="$AGENT")"
     if [ -n "$OLD" ]; then
         docker stop $OLD && docker rm $OLD
